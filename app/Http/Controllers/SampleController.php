@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Sample;
 use Illuminate\Http\Request;
 
@@ -20,16 +21,6 @@ class SampleController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     *public function create()
-     *{
-     *     return view('samples.create');
-     *}
-     */
-
-    /**
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
@@ -42,24 +33,11 @@ class SampleController extends Controller
           'detail' => 'required',
         ]);
 
-        // Sample::create($request->all());
+        Alert::success('Create Data Success', 'Data Sample Created Succssfully.');
+        Sample::create($request->all());
 
-        return redirect()->route('samples.index')
-          ->with('success', 'Data Sample Created Succssfully.');
+        return redirect()->route('samples.index');
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\models\Sample  $sample
-     * @return \Illuminate\Http\Response
-     *
-     *public function show(Sample $sample)
-     *{
-     *     return view('samples.show', compact('sample'));
-     *}
-     *
-     */
 
     /**
      * Show the form for editing the specified resource.
@@ -86,10 +64,11 @@ class SampleController extends Controller
         'detail' => 'required',
       ]);
 
+        Alert::info('Update Data Success', 'Data Sample Updated Succssfully.');
+
         $sample->update($request->all());
 
-        return redirect()->route('samples.index')
-          ->with('success', 'Data Sample Updated Succssfully.');
+        return redirect()->route('samples.index');
     }
 
     /**
@@ -100,9 +79,9 @@ class SampleController extends Controller
      */
     public function destroy(Sample $sample)
     {
-        $sample->delete();
+        Alert::info('Delete Success', 'Data Sample Deleted Succssfully.');
 
-        return redirect()->route('samples.index')
-          ->with('success', 'Data Sample Deleted Succssfully.');
+        $sample->delete();
+        return redirect()->route('samples.index');
     }
 }

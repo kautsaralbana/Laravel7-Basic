@@ -36,15 +36,14 @@
 {{-- End Bread crumb and right sidebar toggle --}}
 
 {{-- Alert --}}
-@if ($message = Session::get('success'))
-<x-alert class="success" :message="$message" />
-@elseif ($errors->any())
+{{-- @include('includes.flash-message')
+@if ($errors->any())
 <x-error>
     @foreach ($errors->all() as $error)
     <li>{{ $error }}</li>
-    @endforeach
+@endforeach
 </x-error>
-@endif
+@endif --}}
 
 <x-card title="Data Sample" subtitle="Sample Data which function for Master">
     <div class="table-responsive">

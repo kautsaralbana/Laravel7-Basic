@@ -45,6 +45,8 @@
             <div class="page-wrapper">
                 {{-- Container fluid  --}}
                 <div class="container-fluid">
+                    {{-- SweetAlert --}}
+                    @include('sweetalert::alert')
                     {{-- Content --}}
                     @yield('content')
 
