@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Database\Eloquent\Model;
 
 class Sample extends Model
