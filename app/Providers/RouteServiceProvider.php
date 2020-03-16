@@ -48,7 +48,7 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
-        //
+        $this->mapUserRoutes();
     }
 
     /**
@@ -80,11 +80,25 @@ class RouteServiceProvider extends ServiceProvider
             ->group(base_path('routes/api.php'));
     }
 
-    /* mapAdminRoutes */
+    /*
+    * Memisahkan Route Aplikasi untuk Role Admin
+    *
+    */
     protected function mapAdminRoutes()
     {
         Route::middleware('admin')
             ->namespace($this->namespace . '\\Admin')
             ->group(base_path('routes/admin.php'));
+    }
+
+    /*
+    * Memisahkan Route Aplikasi untuk Role User
+    *
+    */
+    protected function mapUserRoutes()
+    {
+        Route::middleware('user')
+            ->namespace($this->namespace . '\\User')
+            ->group(base_path('routes/user.php'));
     }
 }

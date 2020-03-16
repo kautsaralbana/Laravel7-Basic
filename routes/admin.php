@@ -1,7 +1,4 @@
 <?php
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+Route::get('samples', 'SampleController@index');
+Route::resource('admin/samples', 'SampleController')->except(['create', 'show']);

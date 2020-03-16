@@ -1,15 +1,22 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Admin;
 
-use RealRashid\SweetAlert\Facades\Alert;
 use App\Models\Sample;
-use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class SampleController extends Controller
 {
     public function index()
+    {
+        $samples = Sample::latest()->paginate(5);
+        return view('samples.index', compact('samples'))
+            ->with('no', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function admin()
     {
         $samples = Sample::latest()->paginate(5);
         return view('samples.index', compact('samples'))
