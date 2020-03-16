@@ -22,9 +22,9 @@
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
                     <ul aria-expanded="false" class="collapse">
                         @role('admin')
-                            <li><a href="admin/samples">Data Sample</a></li>
+                            <li><a href="{{route('admin.samples.index')}}">Data Sample</a></li>
                         @else
-                            <li><a href="user/samples">Data Sample</a></li>
+                            <li><a href="{{route('user.samples.index')}}">Data Sample</a></li>
                         @endrole
                         <li><a href="#">Management Brand</a></li>
                         <li><a href="#">Management Product</a></li>

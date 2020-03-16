@@ -30,9 +30,13 @@ class SampleController extends Controller
             'detail' => 'required',
         ]);
 
-        Alert::success('Create Data Success', 'Data Sample Created Succssfully.');
-        Sample::create($request->all());
+        $samples = new Sample;
+        $samples->name = $request->name;
+        $samples->detail = $request->detail;
+        $samples->created_by = Auth::id();
+        $samples->save();
 
+        Alert::success('Create Data Success', 'Data Sample Created Succssfully.');
         return redirect()->route('admin.samples.index');
     }
 
@@ -55,11 +59,12 @@ class SampleController extends Controller
         return redirect()->route('admin.samples.index');
     }
 
-    public function destroy(Sample $sample)
+    public function destroy($id)
     {
-        Alert::toast('Data Sample Deleted Successfully', 'info');
-
+        $sample = Sample::findOrFail($id);
         $sample->delete();
+
+        Alert::toast('Data Sample Deleted Successfully', 'info');
         return redirect()->route('admin.samples.index');
     }
 }

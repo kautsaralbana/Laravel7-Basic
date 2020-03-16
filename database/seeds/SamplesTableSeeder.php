@@ -13,8 +13,9 @@ class SamplesTableSeeder extends Seeder
     public function run()
     {
         $sample = Sample::create([
-          'name' => 'Data Try One',
-          'detail' => 'This data is created in seeder',
+            'name' => 'Data Try One',
+            'detail' => 'This data is created in seeder',
+            'created_by' => 1,
         ]);
     }
 }

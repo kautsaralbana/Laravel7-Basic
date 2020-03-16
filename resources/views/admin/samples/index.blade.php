@@ -14,7 +14,7 @@
                 {{-- Modal --}}
                 <x-modalBtn class="primary pull-right" dataTarget="create" icon="mdi mdi-plus-circle-outline" name="Create New Sample" />
                 <x-modal id="create" size="" color="primary" title="Create Data Sample">
-                    <form class="form-material mt-4" action="{{ route('samples.store') }}" method="POST">
+                    <form class="form-material mt-4" action="{{ route('admin.samples.store') }}" method="POST">
                         @csrf
                         <div class="form-group">
                             <input type="text" class="form-control" placeholder="Sample Name" name="name">
@@ -63,8 +63,8 @@
                     <td>{{ $sample->name }}</td>
                     <td>{{ $sample->detail }}</td>
                     <td>
-                        <form action="{{ route('samples.destroy', $sample->id) }}" method="POST">
-                            <x-a-button class="warning" :href="route('samples.edit', $sample->id )">Edit</x-a-button>
+                        <form action="{{ route('admin.samples.destroy', $sample->id) }}" method="POST">
+                            <x-a-button class="warning" :href="route('admin.samples.edit', $sample->id )">Edit</x-a-button>
                             @csrf
                             @method('DELETE')
                             <x-button class="danger" type="submit">Delete</x-button>
