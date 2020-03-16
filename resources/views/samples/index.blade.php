@@ -75,6 +75,6 @@
             </tbody>
         </table>
     </div>
-
+    {{ $samples->links() }}
 </x-card>
 @endsection
