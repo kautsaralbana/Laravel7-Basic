@@ -19,12 +19,4 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-/*
- * This Route for Admin
- */
-
-
 Route::get('home', 'HomeController@index')->name('home');
-
-Route::group(['prefix' => 'admin'], function () {
-});

@@ -12,14 +12,14 @@ class SampleController extends Controller
     public function index()
     {
         $samples = Sample::latest()->paginate(5);
-        return view('samples.index', compact('samples'))
+        return view('admin.samples.index', compact('samples'))
             ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
     public function admin()
     {
         $samples = Sample::latest()->paginate(5);
-        return view('samples.index', compact('samples'))
+        return view('admin.samples.index', compact('samples'))
             ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
@@ -33,12 +33,12 @@ class SampleController extends Controller
         Alert::success('Create Data Success', 'Data Sample Created Succssfully.');
         Sample::create($request->all());
 
-        return redirect()->route('samples.index');
+        return redirect()->route('admin.samples.index');
     }
 
     public function edit(Sample $sample)
     {
-        return view('samples.edit', compact('sample'));
+        return view('admin.samples.edit', compact('sample'));
     }
 
     public function update(Request $request, Sample $sample)
@@ -52,7 +52,7 @@ class SampleController extends Controller
 
         $sample->update($request->all());
 
-        return redirect()->route('samples.index');
+        return redirect()->route('admin.samples.index');
     }
 
     public function destroy(Sample $sample)
@@ -60,6 +60,6 @@ class SampleController extends Controller
         Alert::toast('Data Sample Deleted Successfully', 'info');
 
         $sample->delete();
-        return redirect()->route('samples.index');
+        return redirect()->route('admin.samples.index');
     }
 }
