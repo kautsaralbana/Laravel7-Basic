@@ -1,11 +1,16 @@
 <?php
 
-Route::prefix('admin')->group(function () {
-    Route::prefix('samples')->group(function () {
-        Route::get('', 'SampleController@index')->name('admin.samples.index');
-        Route::post('store', 'SampleController@store')->name('admin.samples.store');
-        Route::get('{id}', 'SampleController@edit')->name('admin.samples.edit');
-        Route::post('update/{id}', 'SampleController@update')->name('admin.samples.update');
-        Route::delete('delete/{id}', 'SampleController@destroy')->name('admin.samples.destroy');
-    });
+/*
+|--------------------------------------------------------------------------
+| Admin Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register admin routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "admin" middleware group. Now create something great!
+|
+*/
+
+Route::prefix('admin')->name('admin.')->group(function () {
+    Route::resource('samples', 'SampleController')->except('create');
 });

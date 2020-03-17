@@ -20,3 +20,17 @@ Route::get('/', function () {
 });
 
 Route::get('home', 'HomeController@index')->name('home');
+
+/*
+/ Where you can register admin routes for your application.
+*/
+Route::namespace('Admin')->group(function () {
+    // Controllers Within The "App\Http\Controllers\Admin" Namespace
+});
+
+/*
+/ Where you can register user routes for your application.
+*/
+Route::namespace('User')->group(function () {
+    // Controllers Within The "App\Http\Controllers\User" Namespace
+});

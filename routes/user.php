@@ -1,12 +1,17 @@
 <?php
 
+/*
+|--------------------------------------------------------------------------
+| User Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register user routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "user" middleware group. Now create something great!
+|
+*/
+
 // Data Sample
-Route::prefix('user')->group(function () {
-    Route::prefix('samples')->group(function () {
-        Route::get('', 'SampleController@index')->name('user.samples.index');
-        Route::post('store', 'SampleController@store')->name('user.samples.store');
-        Route::get('{id}', 'SampleController@edit')->name('user.samples.edit');
-        Route::post('update/{id}', 'SampleController@update')->name('user.samples.update');
-        Route::delete('delete/{id}', 'SampleController@destroy')->name('user.samples.destroy');
-    });
+Route::prefix('user')->name('user.')->group(function () {
+    Route::resource('samples', 'SampleController')->except('create');
 });

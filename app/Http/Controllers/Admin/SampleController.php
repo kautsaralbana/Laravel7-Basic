@@ -16,13 +16,6 @@ class SampleController extends Controller
             ->with('no', (request()->input('page', 1) - 1) * 5);
     }
 
-    public function admin()
-    {
-        $samples = Sample::latest()->paginate(5);
-        return view('admin.samples.index', compact('samples'))
-            ->with('no', (request()->input('page', 1) - 1) * 5);
-    }
-
     public function store(Request $request)
     {
         $request->validate([

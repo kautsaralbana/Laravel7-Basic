@@ -51,7 +51,7 @@
         </div>
     </x-halfCard>
     <x-halfCard title="Edit Data Sample" subtitle="Sample Data which function for Master">
-        <form action="{{ route('samples.update', $sample->id) }}" class="form-material mt-4" method="POST" role="form">
+        <form action="{{ route('admin.samples.update', $sample->id) }}" class="form-material mt-4" method="POST" role="form">
             @csrf
             @method('PUT')
             <input type="hidden" name="_method" value="PUT">
