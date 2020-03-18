@@ -17,21 +17,24 @@
         {{-- Sidebar navigation --}}
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">CRUD LARAVEL7</li>
+                <li class="nav-small-cap">Uji Kompetensi 2020</li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{route('home')}}"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                 </li>
-                <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
+                <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
                     <ul aria-expanded="false" class="collapse">
-                        @role('admin')
-                        <li><a href="{{route('admin.samples.index')}}">Data Sample</a></li>
-                        @else
-                        <li><a href="{{route('user.samples.index')}}">Data Sample</a></li>
-                        @endrole
-                        <li><a href="#">Management Brand</a></li>
-                        <li><a href="#">Management Product</a></li>
-                        <li><a href="#">Management Location</a></li>
+                        <li><a href="#">Online Auction System</a></li>
+                        <li><a href="#">Contribution of Education Development</a></li>
+                        <li><a href="#">Public Complaints Report</a></li>
+                        <li><a href="#">Laundry Management System</a></li>
                     </ul>
+                </li>
+                <li>
+                    @role('admin')
+                    <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
+                    @else
+                    <a class="waves-effect waves-dark" href="{{route('user.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
+                    @endrole
                 </li>
             </ul>
         </nav>
