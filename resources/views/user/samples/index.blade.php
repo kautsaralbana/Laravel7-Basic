@@ -35,16 +35,7 @@
 </div>
 {{-- End Bread crumb and right sidebar toggle --}}
 
-{{-- Alert --}}
-{{-- @include('includes.flash-message')
-@if ($errors->any())
-<x-error>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-@endforeach
-</x-error>
-@endif --}}
-
+{{-- Card Content --}}
 <x-card title="Data Sample" subtitle="Sample Data which function for Master">
     <div class="table-responsive">
         <table class="table table-hover">
@@ -77,4 +68,6 @@
     </div>
     {{ $samples->links() }}
 </x-card>
+{{-- End Card Content --}}
+
 @endsection

@@ -21,6 +21,9 @@ Route::get('/', function () {
 
 Route::get('home', 'HomeController@index')->name('home');
 
+Route::get('/profile', 'ProfileController@index')->name('profile.index');
+Route::put('/profile', 'ProfileController@update')->name('profile.update');
+
 /*
 / Where you can register admin routes for your application.
 */

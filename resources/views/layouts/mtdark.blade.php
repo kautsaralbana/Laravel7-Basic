@@ -6,8 +6,8 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         {{-- Tell the browser to be responsive to screen width  --}}
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="description" content="">
-        <meta name="author" content="">
+        <meta name="description" content="Laravel 7 CRUD">
+        <meta name="author" content="kautsaralbana">
         {{-- Favicon icon  --}}
         <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.png')}}">
         <title>{{ $title }}</title>
@@ -25,7 +25,7 @@
         {{-- Custom CSS  --}}
         <link href="{{asset('css/style.css')}}" rel="stylesheet">
         {{-- You can change the theme colors from here  --}}
-        <link href="{{asset('css/colors/green-dark.css')}}" id="theme" rel="stylesheet">
+        <link href="{{asset('css/colors/purple-dark.css')}}" id="theme" rel="stylesheet">
     </head>
 
     <body class="fix-header fix-sidebar card-no-border">
@@ -49,7 +49,6 @@
                     @include('sweetalert::alert')
                     {{-- Content --}}
                     @yield('content')
-
                     {{-- Right sidebar --}}
                     @include('layouts.right-sidebar')
                 </div>
@@ -67,24 +66,24 @@
         {{-- Bootstrap tether Core JavaScript --}}
         <script src="{{asset('assets/plugins/bootstrap/js/popper.min.js')}}"></script>
         <script src="{{asset('assets/plugins/bootstrap/js/bootstrap.min.js')}}"></script>
-        {{-- slimscrollbar scrollbar JavaScript --}}
+        <script src="{{ asset('assets/plugins/bootstrap-select/bootstrap-select.min.js') }}"></script>
+        {{-- Slimscrollbar scrollbar JavaScript --}}
         <script src="{{asset('js/jquery.slimscroll.js')}}"></script>
-        {{-- ave Effects --}}
+        {{-- Wave Effects --}}
         <script src="{{asset('js/waves.js')}}"></script>
-        {{-- enu sidebar --}}
+        {{-- Menu sidebar --}}
         <script src="{{asset('js/sidebarmenu.js')}}"></script>
-        {{-- tickey kit --}}
+        {{-- Stickey kit --}}
         <script src="{{asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
         <script src="{{asset('assets/plugins/sparkline/jquery.sparkline.min.js')}}"></script>
-        {{-- tickey kit --}}
         <script src="{{asset('assets/plugins/sticky-kit-master/dist/sticky-kit.min.js')}}"></script>
-        {{-- ustom JavaScript --}}
+        {{-- Custom JavaScript --}}
         <script src="{{asset('js/custom.min.js')}}"></script>
         {{-- This page plugins --}}
         {{-- chartist chart --}}
         <script src="{{asset('assets/plugins/chartist-js/dist/chartist.min.js')}}"></script>
         <script src="{{asset('assets/plugins/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js')}}"></script>
-        {{-- 3 JavaScript --}}
+        {{-- d3 JavaScript --}}
         <script src="{{asset('assets/plugins/d3/d3.min.js')}}"></script>
         <script src="{{asset('assets/plugins/c3-master/c3.min.js')}}"></script>
         {{-- Vector map JavaScript --}}

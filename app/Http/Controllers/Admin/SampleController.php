@@ -6,6 +6,7 @@ use App\Models\Sample;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use RealRashid\SweetAlert\Facades\Alert;
+use Illuminate\Support\Facades\Auth;
 
 class SampleController extends Controller
 {
@@ -19,7 +20,7 @@ class SampleController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:3',
             'detail' => 'required',
         ]);
 
@@ -29,7 +30,7 @@ class SampleController extends Controller
         $samples->created_by = Auth::id();
         $samples->save();
 
-        Alert::success('Create Data Success', 'Data Sample Created Succssfully.');
+        Alert::alert()->success('Succes', 'Data Sample Successfully Created');
         return redirect()->route('admin.samples.index');
     }
 
@@ -43,12 +44,13 @@ class SampleController extends Controller
         $request->validate([
             'name' => 'required',
             'detail' => 'required',
+        ], [
+            'name.required' => 'Sample name is required'
         ]);
-
-        Alert::info('Update Data Success', 'Data Sample Updated Succssfully.');
 
         $sample->update($request->all());
 
+        Alert::info('Update Data Success', 'Data Sample Updated Succssfully.');
         return redirect()->route('admin.samples.index');
     }
 

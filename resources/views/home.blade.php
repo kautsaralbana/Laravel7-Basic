@@ -19,7 +19,7 @@
                 {{-- --}}
             </div>
             <div class="">
-                <button class="right-side-toggle waves-effect waves-light btn-success btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
+                <button class="right-side-toggle waves-effect waves-light btn-primary btn btn-circle btn-sm pull-right m-l-10"><i class="ti-settings text-white"></i></button>
             </div>
         </div>
     </div>

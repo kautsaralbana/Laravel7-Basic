@@ -5,7 +5,9 @@
         {{-- <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;"> --}}
         <div class="user-profile" style="background-image: url('{{ asset('assets/images/background/user-info.jpg')}}');">
             {{-- User profile image --}}
-            <div class=" profile-img"> <img src="{{asset('assets/images/users/profile.png')}}" alt="user" /> </div>
+            <div class=" profile-img">
+                <img src="{{asset('storage/pics/'.Auth::user()->image)}}" class="profile-pic" alt="user">
+            </div>
             {{-- User profile text --}}
             <div class="profile-text"> <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->name }}</a>
             </div>
@@ -22,9 +24,9 @@
                 <li> <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
                     <ul aria-expanded="false" class="collapse">
                         @role('admin')
-                            <li><a href="{{route('admin.samples.index')}}">Data Sample</a></li>
+                        <li><a href="{{route('admin.samples.index')}}">Data Sample</a></li>
                         @else
-                            <li><a href="{{route('user.samples.index')}}">Data Sample</a></li>
+                        <li><a href="{{route('user.samples.index')}}">Data Sample</a></li>
                         @endrole
                         <li><a href="#">Management Brand</a></li>
                         <li><a href="#">Management Product</a></li>

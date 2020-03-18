@@ -3,7 +3,7 @@
     <nav class="navbar top-navbar navbar-expand-md navbar-light">
         {{-- Logo --}}
         <div class="navbar-header">
-            <a class="navbar-brand" href="index.html">
+            <a class="navbar-brand" href="#">
                 {{-- Logo icon --}}
                 <b>
                     {{-- Dark Logo icon --}}
@@ -31,17 +31,19 @@
             <ul class="navbar-nav my-lg-0">
                 {{-- Profile --}}
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="{{asset('assets/images/users/1.jpg')}}" alt="user"
-                        class="profile-pic" /></a>
+                    <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img src="{{asset('storage/pics/'.Auth::user()->image)}}" class="profile-pic" alt="user">
+                    </a>
                     <div class="dropdown-menu dropdown-menu-right scale-up">
                         <ul class="dropdown-user">
                             <li>
                                 <div class="dw-user-box">
-                                    <div class="u-img"><img src="{{asset('assets/images/users/1.jpg')}}" alt="user">
+                                    <div class="u-img">
+                                        <img src="{{asset('storage/pics/'.Auth::user()->image)}}" alt="user">
                                     </div>
                                     <div class="u-text">
                                         <h4>{{ Auth::user()->name }}</h4>
-                                        <p class=" text-muted">{{ Auth::user()->email }}</p><a href="profile.html" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
+                                        <p class=" text-muted">{{ Auth::user()->email }}</p><a href="{{route('profile.index')}}" class="btn btn-rounded btn-danger btn-sm">View Profile</a>
                                     </div>
                                 </div>
                             </li>
