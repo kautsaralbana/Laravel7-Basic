@@ -44,6 +44,12 @@ class Kernel extends HttpKernel
             'role:admin'
         ],
 
+        'staff' => [
+            'web',
+            'auth',
+            'role:staff'
+        ],
+
         'user' => [
             'web',
             'auth',

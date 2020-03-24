@@ -48,6 +48,8 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapAdminRoutes();
 
+        $this->mapStaffRoutes();
+
         $this->mapUserRoutes();
     }
 
@@ -81,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /*
-    * Memisahkan Route Aplikasi untuk Role Admin
+    * Separate Route Application for Admin Role
     *
     */
     protected function mapAdminRoutes()
@@ -92,7 +94,18 @@ class RouteServiceProvider extends ServiceProvider
     }
 
     /*
-    * Memisahkan Route Aplikasi untuk Role User
+    * Separate Route Application for Staff Role
+    *
+    */
+    protected function mapStaffRoutes()
+    {
+        Route::middleware('staff')
+            ->namespace($this->namespace . '\\Staff')
+            ->group(base_path('routes/staff.php'));
+    }
+
+    /*
+    * Separate Route Application for User Role
     *
     */
     protected function mapUserRoutes()

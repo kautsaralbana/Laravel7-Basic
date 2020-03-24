@@ -30,9 +30,18 @@
                     </ul>
                 </li>
                 <li>
+                    {{-- Ditampilkan hanya untuk admin --}}
                     @role('admin')
                     <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
-                    @else
+                    @endrole
+
+                    {{-- Ditampilkan hanya untuk staff --}}
+                    @role('staff')
+                    <a class="waves-effect waves-dark" href="{{route('staff.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>                                    
+                    @endrole
+
+                    {{-- Ditampilkan hanya untuk user --}}
+                    @role('user')
                     <a class="waves-effect waves-dark" href="{{route('user.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
                     @endrole
                 </li>
