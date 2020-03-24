@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-md-12" for="image">Custom File upload</label>
+                        <label class="col-md-12" for="image">Upload Profile Image</label>
                         <div class="fileinput fileinput-new input-group col-md-12" data-provides="fileinput">
                             <div class="form-control" data-trigger="fileinput">
                                 <i class="fa fa-file fileinput-exists"></i>

@@ -30,15 +30,14 @@
         <div class="card">
             <div class="card-body">
                 <h4 class="card-title">Login Info</h4>
-                <h6 class="card-subtitle">Just add <code>form-material</code> class to the form that's
-                    it.</h6>
+                <h6 class="card-subtitle">Add your subtitle here</h6>
                 <form class="form-material mt-4">
                     @if (session('status'))
                     <div class="alert alert-success" role="alert">
                         {{ session('status') }}
                     </div>
                     @endif
-                    Selamat Datang <b>{{ Auth::user()->name }}</b>
+                    Selamat Datang <b>{{ Auth::user()->name }}</b>                     
                 </form>
             </div>
         </div>

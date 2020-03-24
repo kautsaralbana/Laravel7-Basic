@@ -17,11 +17,17 @@
         {{-- Sidebar navigation --}}
         <nav class="sidebar-nav">
             <ul id="sidebarnav">
-                <li class="nav-small-cap">Uji Kompetensi 2020</li>
+                <li class="nav-small-cap">Laravel Basic</li>
                 <li>
                     <a class="waves-effect waves-dark" href="{{route('home')}}"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
                 </li>
-                <li><a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Master</span></a>
+                <li>
+                    {{-- <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-laptop-windows"></i>
+                        <span class="hide-menu">
+                            Data Master
+                        </span>
+                    </a> --}}
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Online Auction System</a></li>
                         <li><a href="#">Contribution of Education Development</a></li>
@@ -53,11 +59,13 @@
     {{-- Bottom points --}}
     <div class="sidebar-footer">
         {{-- item --}}
-        <a href="" class="link" data-toggle="tooltip" title="Settings"><i class="ti-settings"></i></a>
+        <a href="{{route('profile.index')}}" class="link" data-toggle="tooltip" title="Profile Settings"><i class="ti-settings"></i></a>
         {{-- item --}}
-        <a href="" class="link" data-toggle="tooltip" title="Email"><i class="mdi mdi-gmail"></i></a>
-        {{-- item --}}
-        <a href="" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i></a>
+        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+        </a>
     </div>
     {{-- End Bottom points --}}
 </aside>
