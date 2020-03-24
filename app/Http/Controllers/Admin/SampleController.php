@@ -10,6 +10,11 @@ use Illuminate\Support\Facades\Auth;
 
 class SampleController extends Controller
 {
+    function __construct()
+    {
+        $this->middleware('verified');
+    }
+
     public function index()
     {
         $samples = Sample::latest()->paginate(5);
