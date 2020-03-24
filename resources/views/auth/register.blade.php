@@ -43,6 +43,16 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <div class="col-xs-12">
+                                    <input id="username" type="text" class="form-control @error('username') is-invalid @enderror" name="name" value="{{ old('username') }}" required autocomplete="username" placeholder="Username">
+                                    @error('username')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                    @enderror
+                                </div>
+                            </div>
                             <div class="form-group ">
                                 <div class="col-xs-12">
                                     <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="Email">
@@ -75,7 +85,7 @@
                             </div>
                             <div class="form-group m-b-0">
                                 <div class="col-sm-12 text-center">
-                                    <p>Already have an account? <a href="login.html" class="text-info m-l-5"><b>Sign In</b></a></p>
+                                    <p>Already have an account? <a href="{{route('login')}}" class="text-info m-l-5"><b>Sign In</b></a></p>
                                 </div>
                             </div>
                         </form>

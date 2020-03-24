@@ -28,13 +28,13 @@
                             <h3 class="box-title m-b-20">Sign In</h3>
                             <div class="form-group ">
                                 <div class="col-xs-12">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" placeholder="E-Mail">
+                                    <input id="login" type="text" class="form-control{{ $errors->has('username') || $errors->has('email') ? ' is-invalid' : '' }}" name="login" value="{{ old('username') ?: old('email') }}" required autocomplete="login" placeholder="E-Mail or Username">
 
-                                    @error('email')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                    @enderror
+                                    @if ($errors->has('username') || $errors->has('email'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $message }}</strong>
+                                        </span>
+                                    @endif
                                 </div>
                             </div>
                             <div class="form-group">
