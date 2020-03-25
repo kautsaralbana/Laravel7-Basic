@@ -27,20 +27,24 @@
                         <span class="hide-menu">
                             Data Master
                         </span>
-                    </a> --}}
+                    </a>
                     <ul aria-expanded="false" class="collapse">
                         <li><a href="#">Online Auction System</a></li>
                         <li><a href="#">Contribution of Education Development</a></li>
                         <li><a href="#">Public Complaints Report</a></li>
                         <li><a href="#">Laundry Management System</a></li>
-                    </ul>
-                </li>
-                <li>
+                    </ul> --}}
+                </li>                
                     {{-- Ditampilkan hanya untuk admin --}}
                     @role('admin')
-                    <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
+                    </li>                    
+                    <li>
+                        <a class="waves-effect waves-dark" href="{{route('admin.roles.index')}}"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Management Roles </span></a>
+                    </li>
                     @endrole
-
+                <li>
                     {{-- Ditampilkan hanya untuk staff --}}
                     @role('staff')
                     <a class="waves-effect waves-dark" href="{{route('staff.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>                                    

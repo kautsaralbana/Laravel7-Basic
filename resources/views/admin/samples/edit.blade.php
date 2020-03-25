@@ -22,17 +22,6 @@
 </div>
 {{-- End Bread crumb and right sidebar toggle --}}
 
-{{-- Alert --}}
-@if ($message = Session::get('success'))
-<x-alert class="success" :message="$message" />
-@elseif ($errors->any())
-<x-error>
-    @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
-    @endforeach
-</x-error>
-@endif
-
 <div class="row">
     <x-halfCard title="Default Data Sample" subtitle="Sample Data which function for Master">
         <div class="table-responsive">

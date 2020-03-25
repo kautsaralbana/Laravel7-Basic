@@ -45,10 +45,10 @@
                         <div class="col-md-12">
                             <input type="text" placeholder="Enter full name" value="{{ old('name', Auth::user()->name) }}" class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" name="name" id="name">
                             @if($errors->has('name'))
-                                <span class="invalid-feedback">
-                                    {{$errors->first('name')}}
-                                </span>
-                                @endif
+                            <span class="invalid-feedback">
+                                {{$errors->first('name')}}
+                            </span>
+                            @endif
                         </div>
                     </div>
                     <div class="form-group">

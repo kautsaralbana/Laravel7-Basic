@@ -13,4 +13,5 @@
 
 Route::prefix('admin')->name('admin.')->group(function () {
     Route::resource('samples', 'SampleController')->except('create');
+    Route::resource('roles', 'RoleController');
 });
