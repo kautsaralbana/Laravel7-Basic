@@ -3,13 +3,15 @@
     <div class="scroll-sidebar">
         {{-- User profile --}}
         {{-- <div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;"> --}}
-        <div class="user-profile" style="background-image: url('{{ asset('assets/images/background/user-info.jpg')}}');">
+        <div class="user-profile"
+            style="background-image: url('{{ asset('assets/images/background/user-info.jpg')}}');">
             {{-- User profile image --}}
             <div class=" profile-img">
-                <img src="{{asset('storage/pics/'.Auth::user()->image)}}" class="profile-pic" alt="user">
+                <img src="{{asset('storage/pics/'.Auth::user()->image)}}" class="profile-pic" alt="profile">
             </div>
             {{-- User profile text --}}
-            <div class="profile-text"> <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="true">{{ Auth::user()->name }}</a>
+            <div class="profile-text"> <a href="#" data-toggle="dropdown" role="button" aria-haspopup="true"
+                    aria-expanded="true">{{ Auth::user()->name }}</a>
             </div>
         </div>
         {{-- End User profile text --}}
@@ -19,7 +21,8 @@
             <ul id="sidebarnav">
                 <li class="nav-small-cap">Laravel Basic</li>
                 <li>
-                    <a class="waves-effect waves-dark" href="{{route('home')}}"><i class="mdi mdi-gauge"></i><span class="hide-menu">Dashboard </span></a>
+                    <a class="waves-effect waves-dark" href="{{route('home')}}"><i class="mdi mdi-gauge"></i><span
+                            class="hide-menu">Dashboard </span></a>
                 </li>
                 <li>
                     {{-- <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
@@ -34,25 +37,37 @@
                         <li><a href="#">Public Complaints Report</a></li>
                         <li><a href="#">Laundry Management System</a></li>
                     </ul> --}}
-                </li>                
-                    {{-- Ditampilkan hanya untuk admin --}}
-                    @role('admin')
-                    <li>
-                        <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
-                    </li>                    
-                    <li>
-                        <a class="waves-effect waves-dark" href="{{route('admin.roles.index')}}"><i class="mdi mdi-laptop-windows"></i><span class="hide-menu">Management Roles </span></a>
-                    </li>
-                    @endrole
+                </li>
+                {{-- Ditampilkan hanya untuk admin --}}
+                @role('admin')
+                <li>
+                    <a class="waves-effect waves-dark" href="{{route('admin.samples.index')}}"><i
+                            class="mdi mdi-laptop-windows"></i><span class="hide-menu">Data Sample </span></a>
+                </li>
+                <li>
+                    <a class="has-arrow waves-effect waves-dark" href="#" aria-expanded="false">
+                        <i class="mdi mdi-laptop-windows"></i>
+                        <span class="hide-menu">
+                            Data Accounts
+                        </span>
+                    </a>
+                    <ul aria-expanded="false" class="collapse">
+                        <li><a href="{{route('admin.roles.index')}}">Management Roles</a></li>
+                        <li><a href="{{route('admin.users.index')}}">Management Users</a></li>
+                    </ul>
+                </li>
+                @endrole
                 <li>
                     {{-- Ditampilkan hanya untuk staff --}}
                     @role('staff')
-                    <a class="waves-effect waves-dark" href="{{route('staff.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>                                    
+                    <a class="waves-effect waves-dark" href="{{route('staff.samples.index')}}"><i
+                            class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
                     @endrole
 
                     {{-- Ditampilkan hanya untuk user --}}
                     @role('user')
-                    <a class="waves-effect waves-dark" href="{{route('user.samples.index')}}"><i class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
+                    <a class="waves-effect waves-dark" href="{{route('user.samples.index')}}"><i
+                            class="mdi mdi-database"></i><span class="hide-menu">Data Sample </span></a>
                     @endrole
                 </li>
             </ul>
@@ -63,9 +78,12 @@
     {{-- Bottom points --}}
     <div class="sidebar-footer">
         {{-- item --}}
-        <a href="{{route('profile.index')}}" class="link" data-toggle="tooltip" title="Profile Settings"><i class="ti-settings"></i></a>
+        <a href="{{route('profile.index')}}" class="link" data-toggle="tooltip" title="Profile Settings"><i
+                class="ti-settings"></i></a>
         {{-- item --}}
-        <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="link" data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i>
+        <a href="{{ route('logout') }}"
+            onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="link"
+            data-toggle="tooltip" title="Logout"><i class="mdi mdi-power"></i>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                 @csrf
             </form>
